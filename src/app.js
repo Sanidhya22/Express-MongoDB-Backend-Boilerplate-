@@ -13,6 +13,16 @@ app.use(
     credentials: true,
   })
 );
+
+app.get('/', (req, res) => {
+  console.log(req.body);
+  res.send('test');
+});
+
+app.get('/api/v1/test', (req, res) => {
+  console.log(req.body);
+  res.send('test');
+});
 // app.use('/api/v1', routes);
 
 // // send back a 404 error for any unknown api request
