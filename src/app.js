@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import userRoutes from './routes/user.routes.js';
 
 const app = express();
 
@@ -14,20 +15,8 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  console.log(req.body);
-  res.send('test');
-});
+const BASE_URL = '/api/v1';
 
-app.get('/api/v1/test', (req, res) => {
-  console.log(req.body);
-  res.send('test');
-});
-// app.use('/api/v1', routes);
-
-// // send back a 404 error for any unknown api request
-// app.use((req, res, next) => {
-//   next('Not found 404');
-// });
+app.use(`${BASE_URL}/users`, userRoutes);
 
 export default app;
